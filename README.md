@@ -11,7 +11,6 @@ This lab tutorial is created to practice securing network access to Azure Virtua
 <br></br>
 
 (![diagram](https://github.com/brireyn/Azure-VNet/assets/96150916/edc7b9b5-bcdc-4f91-b117-20a3e8ce8a45)
-)
 
 
 <h2>Languages and Utilities Used</h2>
@@ -33,16 +32,7 @@ First, create a Bastion: <br/>
 
 <br />
 <br />
-Select the disk:  <br/>
+ <br/>
 
 </p>
 
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
