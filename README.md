@@ -44,7 +44,8 @@ Now set up the Virtual Network and the subnet. Make sure when using an Azure Bas
 
  Step3: 
  
-![step3](https://github.com/brireyn/Azure-VNet/assets/96150916/bdf93c40-c246-4fe7-8c80-b98ca11b4c91)
+![addsubnet](https://github.com/brireyn/Azure-VNet/assets/96150916/a6972497-28fa-4e2c-adbe-d45dfd87c250)
+
 For the first subnet, create a Subnet for the Azure Bastion with a subnet mask of /25. Bastion hosts reside in the Public Subnet. 
 <br>
 
@@ -63,7 +64,42 @@ Step 5:  Restrict Access with Network Security Groups (NSGs)
 
 The frontend VM has a public IP and is vulnerable to attacks by being open to the internet. Now to restrict network access using NSGs follwing the zero-trust principle. To allow the frontend servers to access the backend servers on HTTP port 8080, the frontend servers need to be acessible over the Internet on HTTPS port 443. 
 
-From appvm01 SSH terminal run: nc -vz webvm01 22 
+From appvm01 SSH terminal run: nc -vz webvm01 22   (this creates a client-server connection to listen on port 22) 
+
+![VM_connection](https://github.com/brireyn/Azure-VNet/assets/96150916/78791886-fca3-46b5-81c9-265ee9b7c89a)
+
+Step 6: Create the Security Groups - Create the first Security group named application-nsg
+![image](https://github.com/brireyn/Azure-VNet/assets/96150916/2fa91ee5-9ef4-435e-80cd-a8cc09117934)
+
+Inside the Network Security Group Overview - Now configure the Inbound security rules for the allowed and denied traffic protocols.
+
+![app_security_group1](https://github.com/brireyn/Azure-VNet/assets/96150916/a8f8ea6c-2a5c-4227-a514-019f413c0f0d)
+
+![app_inbound_rules](https://github.com/brireyn/Azure-VNet/assets/96150916/07bf5014-51a7-4921-ba88-d06920ac8734)
+
+![app_inbound_2](https://github.com/brireyn/Azure-VNet/assets/96150916/08c7d1d1-8ee4-4fc0-820a-447697480ba6)
+
+Add a 2nd Inbound Rule for the Frontend:
+![frontend_inboundrule](https://github.com/brireyn/Azure-VNet/assets/96150916/cea2e971-1b05-4e09-bb03-7e1ffdbab476)
+
+*Frontend Security Rule Successful* 
+![successful_inbound](https://github.com/brireyn/Azure-VNet/assets/96150916/813bc07b-03db-4198-972e-c7489fb3c476)
+
+Now add the last inbound rule for application-nsg:
+![last_inbound_rule](https://github.com/brireyn/Azure-VNet/assets/96150916/ed51dc00-25bc-42f9-9b09-abbb0986dd52)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
