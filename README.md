@@ -71,7 +71,7 @@ From appvm01 SSH terminal run: nc -vz webvm01 22   (this creates a client-server
 Step 6: Create the Security Groups - Create the first Security group named application-nsg
 ![image](https://github.com/brireyn/Azure-VNet/assets/96150916/2fa91ee5-9ef4-435e-80cd-a8cc09117934)
 
-Inside the Network Security Group Overview - Now configure the Inbound security rules for the allowed and denied traffic protocols.
+Inside the Network Security Group Overview - Now configure the Inbound security rules for the allowed and denied traffic protocols. Note the priority assigned, in Azure two NSG rules in the same direction (inbound) cannot have the same priority value. 
 
 ![app_security_group1](https://github.com/brireyn/Azure-VNet/assets/96150916/a8f8ea6c-2a5c-4227-a514-019f413c0f0d)
 
@@ -85,8 +85,29 @@ Add a 2nd Inbound Rule for the Frontend:
 *Frontend Security Rule Successful* 
 ![successful_inbound](https://github.com/brireyn/Azure-VNet/assets/96150916/813bc07b-03db-4198-972e-c7489fb3c476)
 
-Now add the last inbound rule for application-nsg:
+![tcp8080_inboundrule](https://github.com/brireyn/Azure-VNet/assets/96150916/131bff13-1b28-45a6-9ce8-5c50428f4e2d)
+The TCP port 8080 rule is to allow the specific communication needed from frontend towards the backend subnets.
+
+
+Now add the last inbound rule for application-nsg  (should have 3 inbound security rules created )
 ![last_inbound_rule](https://github.com/brireyn/Azure-VNet/assets/96150916/ed51dc00-25bc-42f9-9b09-abbb0986dd52)
+
+![overview_inboundrule](https://github.com/brireyn/Azure-VNet/assets/96150916/cc62c483-89a4-4f72-99ad-677d9ec60821)
+
+Step 7:  Now Associate the 3 subnets to the application-nsg  (repeat this step 3 times) under Settings -> Subnets -> Assoicate Subnet:
+![associated_subnet1](https://github.com/brireyn/Azure-VNet/assets/96150916/6708008c-e5c0-4d01-913d-8b3dc6bc139d)
+
+Under Virtual Networks, the Frontend Subnet and Backend Subnet and Azure Bastion subnet should look like this:
+
+![virtualnetworks](https://github.com/brireyn/Azure-VNet/assets/96150916/0f0918d4-8975-4438-bb2f-299db196cd8c)
+
+![subnets](https://github.com/brireyn/Azure-VNet/assets/96150916/c1b773c4-93d7-4c99-a198-b78b81d927f0)
+
+Step 8: Validate Connectivity and Evaluate Effective Security Rules:
+![step8](https://github.com/brireyn/Azure-VNet/assets/96150916/a3cb6035-066e-4a0a-a3e8-e31ffd0d5efe)
+
+
+
 
 
 
