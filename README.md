@@ -1,5 +1,5 @@
 # Azure-VNet
-A lab created to practice securing network access to Azure Virtual Networks using NSGs, Azure Firewall, and Azure Bastion. 
+A lab tutorial demonstrating securing network access to Azure Virtual Networks using NSGs, Azure Firewall, and Azure Bastion. 
 
 
 <h1>Securing VNet Access in Azure</h1>
@@ -7,7 +7,7 @@ A lab created to practice securing network access to Azure Virtual Networks usin
  
 
 <h2>Description</h2>
-This lab tutorial is created to practice securing network access to Azure Virtual Networks using NSGs, Azure Firewall, Virtual Machines, and Azure Bastion. The two VMs consist of a web frontend and a backend. The end goal is to have a well secured environment with only the necessory open ports and protocols to aid in creating a zero-trust architecture.
+This lab tutorial demonstrates securing network access to Azure Virtual Networks using NSGs, Azure Firewall, Virtual Machines, and Azure Bastion. The two VMs consist of a web frontend and a backend. The end goal displays a secured environment with only the necessory open ports and protocols to aid in creating a zero-trust architecture.
 <br></br>
 
 Here is a Diagram of the Virtual Network Architecture:
